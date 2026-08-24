@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#082b5e">
+  <meta name="description" content="Каталог професійних полімерних матеріалів: клеї, рідкі пластики, покриття, гідроізоляція та пігменти для партнерів і продавців.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:title" content="Каталог професійних полімерних матеріалів">
+  <meta property="og:description" content="Клеї · Рідкі пластики · Покриття · Гідроізоляція">
+  <meta property="og:image" content="og.png">
+  <meta property="og:image:width" content="1733">
+  <meta property="og:image:height" content="907">
+  <meta property="og:image:alt" content="Каталог професійних полімерних матеріалів">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Каталог професійних полімерних матеріалів">
+  <meta name="twitter:description" content="Клеї · Рідкі пластики · Покриття · Гідроізоляція">
+  <meta name="twitter:image" content="og.png">
+  <title>Каталог професійних полімерних матеріалів</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="catalog.css">
+  <script src="catalog.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#catalog">Перейти до товарів</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="TechPolymers Market — на початок">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="brand-name">TechPolymers<em>Market</em></span>
+      </a>
+      <nav class="main-nav" aria-label="Основна навігація">
+        <a href="#catalog">Каталог</a>
+        <a href="#partnership">Партнерам</a>
+        <a href="#contacts">Контакти</a>
+      </nav>
+      <a class="button button-small button-primary header-button" href="https://techpolymersmarket.com/kontakty" target="_blank" rel="noopener">
+        Отримати гуртовий прайс
+      </a>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Каталог для партнерів і продавців</p>
+          <h1 id="hero-title">Матеріали для <strong>надійного</strong> результату</h1>
+          <p class="hero-lead">
+            Професійні поліуретанові системи, клеї та покриття. Коротко про застосування,
+            характеристики й користь кожного продукту — без зайвого пошуку.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-accent" href="#catalog">Переглянути всі товари <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="#partnership">Умови для продавців <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+
+        <div class="hero-panel" aria-label="Категорії каталогу">
+          <p class="panel-label">У каталозі</p>
+          <div class="hero-count"><strong>09</strong><span>спеціалізованих<br>рішень</span></div>
+          <div class="category-stack">
+            <span><b>01</b> Лиття та форми</span>
+            <span><b>02</b> Професійні клеї</span>
+            <span><b>03</b> Покриття й гідроізоляція</span>
+            <span><b>04</b> Пігментні системи</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-meta" aria-label="Переваги для партнерів">
+        <span><b>01</b> Структуровані характеристики</span>
+        <span><b>02</b> Сфери застосування</span>
+        <span><b>03</b> Професійна консультація</span>
+      </div>
+    </section>
+
+    <section class="catalog-section" id="catalog" aria-labelledby="catalog-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow eyebrow-dark"><span></span> Асортимент</p>
+          <h2 id="catalog-title">Знайдіть потрібне рішення</h2>
+        </div>
+        <p>Товари розміщені послідовно — від матеріалів для лиття до фінішних покриттів і пігментів.</p>
+      </div>
+
+      <div class="catalog-tools" aria-label="Пошук і фільтрація товарів">
+        <label class="search-field">
+          <span class="visually-hidden">Пошук за назвою або застосуванням</span>
+          <span class="search-icon" aria-hidden="true"></span>
+          <input id="catalog-search" type="search" placeholder="Пошук за назвою або застосуванням…" autocomplete="off">
+          <kbd>Ctrl K</kbd>
+        </label>
+        <div class="filter-row" role="group" aria-label="Фільтр за категорією">
+          <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">Усі</button>
+          <button class="filter-chip" type="button" data-filter="casting" aria-pressed="false">Лиття</button>
+          <button class="filter-chip" type="button" data-filter="adhesives" aria-pressed="false">Клеї</button>
+          <button class="filter-chip" type="button" data-filter="coatings" aria-pressed="false">Покриття</button>
+          <button class="filter-chip" type="button" data-filter="waterproofing" aria-pressed="false">Гідроізоляція</button>
+          <button class="filter-chip" type="button" data-filter="pigments" aria-pressed="false">Пігменти</button>
+        </div>
+        <div class="results-meta">
+          <p id="results-count" aria-live="polite">Показано 9 із 9 товарів</p>
+          <button id="reset-filters" class="reset-button" type="button" hidden>Скинути фільтри</button>
+        </div>
+      </div>
+
+      <div class="product-list" id="product-list">
+        <article class="product-card" data-category="casting" data-search="поліхім 2001 р 8 1 рідкий пластик лиття форми сувеніри фігурки декор меблі 3d друк поліуретан">
+          <div class="product-media">
+            <button class="image-open" type="button" data-image="products/polihim-2001-r8-1.png" data-title="ПоліХім-2001 Р-8/1" aria-label="Відкрити інфографіку ПоліХім-2001 Р-8/1">
+              <img src="products/polihim-2001-r8-1.png" alt="Інфографіка рідкого пластику ПоліХім-2001 Р-8/1" width="1254" height="1254">
+              <span class="zoom-label" aria-hidden="true">Збільшити <b>↗</b></span>
+            </button>
+          </div>
+          <div class="product-content">
+            <div class="product-topline"><span>01 / Лиття та форми</span><span class="product-type">2К система</span></div>
+            <h3>ПоліХім-2001 Р-8/1</h3>
+            <p class="product-subtitle">Швидкий двокомпонентний рідкий пластик для ручної та машинної заливки у форми.</p>
+            <div class="tag-list" aria-label="Застосування">
+              <span>Сувеніри</span><span>Декор</span><span>Майстер-моделі</span><span>Серійне лиття</span>
+            </div>
+            <dl class="spec-grid">
+              <div><dt>Життя суміші</dt><dd>160–220 с</dd></div>
+              <div><dt>Співвідношення A:B</dt><dd>100 : 60</dd></div>
+              <div><dt>Комплект</dt><dd>1,6 кг</dd></div>
+            </dl>
+            <ul class="benefit-list">
+              <li>Висока плинність і точне відтворення дрібних деталей</li>
+              <li>Швидкий цикл виготовлення — 5–10 хвилин</li>
+              <li>Міцний, твердий і водонепроникний готовий виріб</li>
+              <li>Можна шліфувати, свердлити та фарбувати</li>
+            </ul>
+            <div class="product-actions">
+              <a class="button button-primary" href="https://techpolymersmarket.com/tovar/ridkyj-plastyk-polihim-2001-r81-shvydkyj" target="_blank" rel="noopener">Деталі товару <span aria-hidden="true">↗</span></a>
+              <button class="copy-button" type="button" data-copy="ПоліХім-2001 Р-8/1">Копіювати назву</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="adhesives" data-search="поліхім 2004 р 2 2 універсальний поліуретановий клей плитка паркет дсп двп скло метал кераміка пінопласт бетон цегла дерево">
+          <div class="product-media">
+            <button class="image-open" type="button" data-image="products/polihim-2004-r2-2.png" data-title="ПоліХім-2004 Р-2/2" aria-label="Відкрити інфографіку ПоліХім-2004 Р-2/2">
+              <img src="products/polihim-2004-r2-2.png" alt="Інфографіка універсального клею ПоліХім-2004 Р-2/2" width="1122" height="1402" loading="lazy">
+              <span class="zoom-label" aria-hidden="true">Збільшити <b>↗</b></span>
+            </button>
+          </div>
+          <div class="product-content">
+            <div class="product-topline"><span>02 / Професійні клеї</span><span class="product-type">2К система</span></div>
+            <h3>ПоліХім-2004 Р-2/2</h3>
+            <p class="product-subtitle">Універсальний поліуретановий клей для будівельних, ремонтних та оздоблювальних робіт.</p>
+            <div class="tag-list" aria-label="Матеріали">
+              <span>Дерево</span><span>Метал</span><span>Скло</span><span>Кераміка</span><span>Пінопласт</span>
+            </div>
+            <dl class="spec-grid">
+              <div><dt>Співвідношення</dt><dd>100 : 11</dd></div>
+              <div><dt>Комплект</dt><dd>1000 г + 111 г</dd></div>
+              <div><dt>Зчеплення</dt><dd>12–24 год</dd></div>
+            </dl>
+            <ul class="benefit-list">
+              <li>Міцно склеює різнорідні матеріали</li>
+              <li>Водостійкий і термостійкий шов</li>
+              <li>Підходить для горизонтальних та вертикальних поверхонь</li>
+            </ul>
+            <div class="product-actions">
+              <a class="button button-primary" href="https://techpolymersmarket.com/tovar/klei-universalnii-zagalnobudivelnogo-priznacennia-polixim-2004-r-22-100-g-11-g" target="_blank" rel="noopener">Деталі товару <span aria-hidden="true">↗</span></a>
+              <button class="copy-button" type="button" data-copy="ПоліХім-2004 Р-2/2">Копіювати назву</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="adhesives" data-search="поліхім 4003 20 клей сіп сип сендвіч панелі утеплювач сталь дерево пластик пінополістирол пір мінеральна вата">
+          <div class="product-media">
+            <button class="image-open" type="button" data-image="products/polihim-4003-20.png" data-title="ПоліХім-4003/20" aria-label="Відкрити інфографіку ПоліХім-4003/20">
+              <img src="products/polihim-4003-20.png" alt="Інфографіка клею ПоліХім-4003/20 для СІП- і сендвіч-панелей" width="1122" height="1402" loading="lazy">
+              <span class="zoom-label" aria-hidden="true">Збільшити <b>↗</b></span>
+            </button>
+          </div>
+          <div class="product-content">
+            <div class="product-topline"><span>03 / Панельне виробництво</span><span class="product-type">1К клей</span></div>
+            <h3>ПоліХім-4003/20</h3>
+            <p class="product-subtitle">Однокомпонентний вологоотверджувальний клей для виробництва СІП- і сендвіч-панелей.</p>
+            <div class="tag-list" aria-label="Матеріали">
+              <span>Сталь</span><span>Деревина</span><span>PIR</span><span>Мінеральна вата</span>
+            </div>
+            <dl class="spec-grid">
+              <div><dt>Витрата</dt><dd>100–200 г/м²</dd></div>
+              <div><dt>Плівка</dt><dd>18–22 хв</dd></div>
+              <div><dt>Пресування</dt><dd>від 50 хв</dd></div>
+            </dl>
+            <ul class="benefit-list">
+              <li>Міцне та еластичне склеювання панелей</li>
+              <li>Готовий до використання без змішування</li>
+              <li>Придатний для ручного й машинного нанесення</li>
+            </ul>
+            <div class="product-actions">
+              <a class="button button-primary" href="https://techpolymersmarket.com/tovar/poliuretanovii-klei-dlia-sip-panelei-i-sendvic-panelei-polixim-400320-50-kg" target="_blank" rel="noopener">Деталі товару <span aria-hidden="true">↗</span></a>
+              <button class="copy-button" type="button" data-copy="ПоліХім-4003/20">Копіювати назву</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="adhesives" data-search="поліхім 4001 d4 клей деревини дерево вікна двері меблі сходи щити плити вологостійкий">
+          <div class="product-media">
+            <button class="image-open" type="button" data-image="products/polihim-4001-d4.png" data-title="ПоліХім-4001 D4" aria-label="Відкрити інфографіку ПоліХім-4001 D4">
+              <img src="products/polihim-4001-d4.png" alt="Інфографіка вологостійкого клею для деревини ПоліХім-4001 D4" width="1254" height="1254" loading="lazy">
+              <span class="zoom-label" aria-hidden="true">Збільшити <b>↗</b></span>
+            </button>
+          </div>
+          <div class="product-content">
+            <div class="product-topline"><span>04 / Клей для деревини</span><span class="product-type">1К клей</span></div>
+            <h3>ПоліХім-4001 D4</h3>
+            <p class="product-subtitle">Однокомпонентний поліуретановий клей для деревини та вологостійких з’єднань класу D4.</p>
+            <div class="tag-list" aria-label="Застосування">
+              <span>Вікна</span><span>Двері</span><span>Меблі</span><span>Сходи</span><span>Деревні плити</span>
+            </div>
+            <dl class="spec-grid">
+              <div><dt>Клас</dt><dd>Вологостійкість D4</dd></div>
+              <div><dt>Фасування</dt><dd>500 г</dd></div>
+              <div><dt>Надійний шов</dt><dd>через 24 год</dd></div>
+            </dl>
+            <ul class="benefit-list">
+              <li>Готовий до використання, без розчинників</li>
+              <li>Заповнює дрібні пори та твердіє під дією вологи</li>
+              <li>Для внутрішніх і зовнішніх робіт</li>
+            </ul>
+            <div class="product-actions">
+              <a class="button button-primary" href="https://techpolymersmarket.com/tovar/poliuretanovii-klei-dlia-derevini-d4-polixim-400150-odnokomponentnii-vologozatverdzuvalnii-500-g" target="_blank" rel="noopener">Деталі товару <span aria-hidden="true">↗</span></a>
+              <button class="copy-button" type="button" data-copy="ПоліХім-4001 D4">Копіювати назву</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card product-card-green" data-category="adhesives" data-search="поліхім 2004 р 3 клей штучної трави газон спортивний дитячий майданчик шов ландшафт комерційний">
+          <div class="product-media">
+            <button class="image-open" type="button" data-image="products/polihim-2004-r3.png" data-title="ПоліХім-2004 Р-3" aria-label="Відкрити інфографіку ПоліХім-2004 Р-3">
+              <img src="products/polihim-2004-r3.png" alt="Інфографіка клею для штучної трави ПоліХім-2004 Р-3" width="1122" height="1402" loading="lazy">
+              <span class="zoom-label" aria-hidden="true">Збільшити <b>↗</b></span>
+            </button>
+          </div>
+          <div class="product-content">
+            <div class="product-topline"><span>05 / Ландшафтні рішення</span><span class="product-type">2К клей</span></div>
+            <h3>ПоліХім-2004 Р-3</h3>
+            <p class="product-subtitle">Двокомпонентний поліуретановий клей для монтажу штучної трави та фіксації швів.</p>
+            <div class="tag-list" aria-label="Застосування">
+              <span>Спортмайданчики</span><span>Газони</span><span>Дитячі зони</span><span>Ландшафт</span>
+            </div>
+            <dl class="spec-grid">
+              <div><dt>Комплект</dt><dd>11,8 кг</dd></div>
+              <div><dt>Співвідношення</dt><dd>100 : 18</dd></div>
+              <div><dt>Гелеутворення</dt><dd>90–140 хв</dd></div>
+            </dl>
+            <ul class="benefit-list">
+              <li>Надійне склеювання й еластичний шов без тріщин</li>
+              <li>Стійкість до вологи, навантажень і температур</li>
+              <li>Для зовнішніх та внутрішніх робіт</li>
+            </ul>
+            <div class="product-actions">
+              <a class="button button-primary" href="https://techpolymersmarket.com/tovar/klei-dlia-montazu-stucnoyi-travi-na-sportivnix-maidancikax-ta-gazonax-polixim-2004-r-2-10kg18kg" target="_blank" rel="noopener">Деталі товару <span aria-hidden="true">↗</span></a>
+              <button class="copy-button" type="button" data-copy="ПоліХім-2004 Р-3">Копіювати назву</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card product-card-green" data-category="coatings" data-search="поліхім 4000 р 4 сполучне гумова крихта покриття дитячий спортивний майданчик бігова доріжка двір парк">
+          <div class="product-media">
+            <button class="image-open" type="button" data-image="products/polihim-4000-r4.png" data-title="ПоліХім-4000 Р-4" aria-label="Відкрити інфографіку ПоліХім-4000 Р-4">
+              <img src="products/polihim-4000-r4.png" alt="Інфографіка поліуретанового сполучного ПоліХім-4000 Р-4 для гумової крихти" width="1122" height="1402" loading="lazy">
+              <span class="zoom-label" aria-hidden="true">Збільшити <b>↗</b></span>
+            </button>
+          </div>
+          <div class="product-content">
+            <div class="product-topline"><span>06 / Еластичні покриття</span><span class="product-type">1К сполучне</span></div>
+            <h3>ПоліХім-4000 Р-4</h3>
+            <p class="product-subtitle">Однокомпонентне поліуретанове сполучне для безшовних покриттів із гумової крихти.</p>
+            <div class="tag-list" aria-label="Застосування">
+              <span>Дитячі зони</span><span>Спортмайданчики</span><span>Бігові доріжки</span><span>Парки</span>
+            </div>
+            <dl class="spec-grid">
+              <div><dt>Фракція крихти</dt><dd>1–5 мм</dd></div>
+              <div><dt>Витрата</dt><dd>18–20 ч.</dd></div>
+              <div><dt>Повна міцність</dt><dd>до 7 діб</dd></div>
+            </dl>
+            <ul class="benefit-list">
+              <li>Еластичне, міцне та довговічне покриття</li>
+              <li>Сумісне з пігментами й легко наноситься</li>
+              <li>Стабільна якість у спекотних умовах</li>
+            </ul>
+            <div class="product-actions">
+              <a class="button button-primary" href="https://techpolymersmarket.com/tovar/odnokomponentne-poliuretanove-spolucne-dlia-gumovoyi-krixti-polixim-4000-r-4" target="_blank" rel="noopener">Деталі товару <span aria-hidden="true">↗</span></a>
+              <button class="copy-button" type="button" data-copy="ПоліХім-4000 Р-4">Копіювати назву</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="waterproofing" data-search="manual base еластична полімочевина гідроізоляція покрівля тераса балкон підлога паркінг ремонт валик пензель шпатель">
+          <div class="product-media">
+            <button class="image-open" type="button" data-image="products/manual-base.png" data-title="Manual Base" aria-label="Відкрити інфографіку Manual Base">
+              <img src="products/manual-base.png" alt="Інфографіка еластичної полімочевини Manual Base для гідроізоляції" width="1254" height="1254" loading="lazy">
+              <span class="zoom-label" aria-hidden="true">Збільшити <b>↗</b></span>
+            </button>
+          </div>
+          <div class="product-content">
+            <div class="product-topline"><span>07 / Гідроізоляція</span><span class="product-type">2К система</span></div>
+            <h3>Manual Base</h3>
+            <p class="product-subtitle">Еластична полімочевина холодного ручного нанесення для створення безшовного гідробар’єра.</p>
+            <div class="tag-list" aria-label="Застосування">
+              <span>Покрівлі</span><span>Тераси</span><span>Балкони</span><span>Підлоги</span><span>Паркінги</span>
+            </div>
+            <dl class="spec-grid">
+              <div><dt>Комплект</dt><dd>10 кг + 1 кг</dd></div>
+              <div><dt>Загальна витрата</dt><dd>1,8–3,2 кг/м²</dd></div>
+              <div><dt>Нанесення</dt><dd>1–2 шари</dd></div>
+            </dl>
+            <ul class="benefit-list">
+              <li>Безшовний захист від протікань і вологи</li>
+              <li>Не потребує дорогого обладнання</li>
+              <li>Підходить для локального ремонту без демонтажу</li>
+            </ul>
+            <div class="product-actions">
+              <a class="button button-primary" href="https://techpolymersmarket.com/tovar/elasticna-dvokomponentna-polimocevina-manual-base-dlia-gidroizoliaciyi-xolodnogo-nanesennia-komplekt-10-kg-1-kg" target="_blank" rel="noopener">Деталі товару <span aria-hidden="true">↗</span></a>
+              <button class="copy-button" type="button" data-copy="Manual Base">Копіювати назву</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card product-card-dark" data-category="coatings" data-search="поліхім 2005 p1 р1 лак мокрий камінь тротуарна плитка фасад декоративний бетон басейн фонтан доріжка сходи тераса">
+          <div class="product-media">
+            <button class="image-open" type="button" data-image="products/polihim-2005-p1.png" data-title="ПоліХім-2005 P1" aria-label="Відкрити інфографіку ПоліХім-2005 P1">
+              <img src="products/polihim-2005-p1.png" alt="Інфографіка лаку ПоліХім-2005 P1 з ефектом мокрого каменю" width="1024" height="1536" loading="lazy">
+              <span class="zoom-label" aria-hidden="true">Збільшити <b>↗</b></span>
+            </button>
+          </div>
+          <div class="product-content">
+            <div class="product-topline"><span>08 / Захисні покриття</span><span class="product-type">3К лак</span></div>
+            <h3>ПоліХім-2005 P1</h3>
+            <p class="product-subtitle">Поліуретановий лак «Мокрий камінь» для виразного кольору й довготривалого захисту поверхонь.</p>
+            <div class="tag-list" aria-label="Застосування">
+              <span>Тротуарна плитка</span><span>Фасади</span><span>Камінь</span><span>Басейни</span><span>Тераси</span>
+            </div>
+            <dl class="spec-grid">
+              <div><dt>Співвідношення</dt><dd>5 : 3 : 2</dd></div>
+              <div><dt>Витрата</dt><dd>0,1–0,3 кг/м²</dd></div>
+              <div><dt>Повне висихання</dt><dd>24 год</dd></div>
+            </dl>
+            <ul class="benefit-list">
+              <li>Підсилює фактуру та природний колір поверхні</li>
+              <li>Захищає від вологи, УФ-променів і перепадів температур</li>
+              <li>Довговічне покриття без тріщин і вицвітання</li>
+            </ul>
+            <div class="product-actions">
+              <a class="button button-primary" href="https://techpolymersmarket.com/tovar/lak-mokryj-kamin-polihim-2005-r1-10kg" target="_blank" rel="noopener">Деталі товару <span aria-hidden="true">↗</span></a>
+              <button class="copy-button" type="button" data-copy="ПоліХім-2005 P1">Копіювати назву</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card product-card-pigment" data-category="pigments" data-search="пігментна паста рідкий пластик поліуретан чорна біла червона синя жовта коричнева зелена колір декор сувенір меблі фасад камінь дерево">
+          <div class="product-media">
+            <button class="image-open" type="button" data-image="products/pigment-paste-liquid-plastic.png" data-title="Пігментна паста + рідкий пластик" aria-label="Відкрити інфографіку пігментної пасти та рідкого пластику">
+              <img src="products/pigment-paste-liquid-plastic.png" alt="Інфографіка пігментних паст для колорування рідкого пластику" width="1254" height="1254" loading="lazy">
+              <span class="zoom-label" aria-hidden="true">Збільшити <b>↗</b></span>
+            </button>
+          </div>
+          <div class="product-content">
+            <div class="product-topline"><span>09 / Колорування</span><span class="product-type">7 кольорів</span></div>
+            <h3>Пігментна паста + рідкий пластик</h3>
+            <p class="product-subtitle">Концентровані пігментні пасти для рівномірного та насиченого кольору поліуретанових виробів.</p>
+            <div class="tag-list tag-colors" aria-label="Доступні кольори">
+              <span>Чорна</span><span>Біла</span><span>Червона</span><span>Синя</span><span>Жовта</span><span>Коричнева</span><span>Зелена</span>
+            </div>
+            <dl class="spec-grid">
+              <div><dt>Фасування пасти</dt><dd>50 г</dd></div>
+              <div><dt>Дозування</dt><dd>1–6% від А</dd></div>
+              <div><dt>Перемішування</dt><dd>1–3 хв</dd></div>
+            </dl>
+            <ul class="benefit-list">
+              <li>Глибокий рівномірний колір без плям</li>
+              <li>Легко вводиться та швидко перемішується</li>
+              <li>Мінімальне дозування й стабільний результат</li>
+            </ul>
+            <div class="product-actions">
+              <a class="button button-primary" href="https://techpolymersmarket.com/kataloh/pasta-pigmentna" target="_blank" rel="noopener">Переглянути кольори <span aria-hidden="true">↗</span></a>
+              <button class="copy-button" type="button" data-copy="Пігментна паста + рідкий пластик">Копіювати назву</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <span aria-hidden="true">⌕</span>
+        <h3>Товарів не знайдено</h3>
+        <p>Спробуйте іншу назву або скиньте активні фільтри.</p>
+        <button class="button button-primary" type="button" data-reset>Показати всі товари</button>
+      </div>
+    </section>
+
+    <section class="partnership" id="partnership" aria-labelledby="partnership-title">
+      <div class="partnership-copy">
+        <p class="eyebrow"><span></span> Для магазинів і виробництв</p>
+        <h2 id="partnership-title">Додайте професійні матеріали до свого асортименту</h2>
+        <p>Отримайте консультацію щодо продуктів, фасування та умов співпраці для вашого магазину або виробництва.</p>
+        <a class="button button-accent" href="https://techpolymersmarket.com/kontakty" target="_blank" rel="noopener">Запросити гуртовий прайс <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="partnership-points">
+        <div><b>01</b><span><strong>Зрозумілий вибір</strong>Матеріали згруповані за задачами й застосуванням.</span></div>
+        <div><b>02</b><span><strong>Технічна підтримка</strong>Допомога у виборі системи для конкретної основи.</span></div>
+        <div><b>03</b><span><strong>Партнерський формат</strong>Інформація про фасування та гуртові умови.</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacts">
+    <div class="footer-inner">
+      <div>
+        <a class="brand brand-footer" href="#top" aria-label="TechPolymers Market — на початок">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="brand-name">TechPolymers<em>Market</em></span>
+        </a>
+        <p>Надійні рішення для ремонту, будівництва та виробництва.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#catalog">Каталог</a>
+        <a href="#partnership">Партнерам</a>
+        <a href="https://techpolymersmarket.com/kontakty" target="_blank" rel="noopener">Зв’язатися <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="copyright">© <span id="current-year">2026</span> Каталог полімерних матеріалів</p>
+    </div>
+  </footer>
+
+  <a class="mobile-cta" href="https://techpolymersmarket.com/kontakty" target="_blank" rel="noopener">Отримати гуртовий прайс <span aria-hidden="true">↗</span></a>
+
+  <dialog class="image-dialog" id="image-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-bar">
+      <p id="dialog-title">Інфографіка товару</p>
+      <button class="dialog-close" type="button" aria-label="Закрити перегляд">×</button>
+    </div>
+    <div class="dialog-image-wrap"><img id="dialog-image" src="" alt=""></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">Назву скопійовано</div>
+
+  <noscript><p class="noscript">Пошук і великий перегляд інфографіки потребують JavaScript. Усі товари та посилання доступні нижче.</p></noscript>
+</body>
+</html>
