@@ -36,6 +36,7 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+/.vercel-static/
 
 # local source artwork (optimized copies are published from /public/products)
 /img/
