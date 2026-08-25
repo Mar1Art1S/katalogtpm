@@ -257,8 +257,6 @@ img { max-width: 100%; }
 .benefit-list li { position: relative; padding-left: 26px; color: #34485f; font-size: 14px; line-height: 1.5; }
 .benefit-list li::before { content: "✓"; position: absolute; left: 0; top: -1px; color: var(--card-accent); font-size: 16px; font-weight: 950; }
 .product-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 28px; }
-.copy-button { min-height: 46px; padding: 0 16px; border: 1px solid var(--line); border-radius: 999px; background: white; color: #516278; cursor: pointer; font-size: 12px; font-weight: 800; }
-.copy-button:hover { border-color: #a9bdd1; color: var(--navy); }
 
 .empty-state { padding: 80px 20px; border: 1px dashed #bac9d8; border-radius: var(--radius-lg); background: white; text-align: center; }
 .empty-state > span { display: block; color: var(--blue); font-size: 58px; line-height: 1; }
@@ -351,8 +349,6 @@ footer { background: var(--navy-deep); color: white; }
 .detail-color-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .detail-note { margin: 34px 0 0; padding: 18px 20px; border-left: 4px solid var(--orange); border-radius: 0 14px 14px 0; background: #f6f9fc; color: #53667c; font-size: 13px; line-height: 1.6; }
 .detail-note strong { color: var(--navy); }
-.toast { position: fixed; z-index: 190; left: 50%; bottom: 24px; transform: translate(-50%, 120px); padding: 12px 18px; border-radius: 999px; background: var(--navy-deep); color: white; opacity: 0; pointer-events: none; font-size: 12px; font-weight: 800; box-shadow: 0 14px 40px rgba(4,29,66,.25); transition: transform .25s ease, opacity .25s ease; }
-.toast.is-visible { transform: translate(-50%, 0); opacity: 1; }
 .mobile-cta { display: none; }
 .noscript { position: fixed; z-index: 120; left: 12px; right: 12px; bottom: 12px; margin: 0; padding: 14px; border-radius: 12px; background: #fff0dd; color: #6f3900; text-align: center; font-weight: 700; }
 
@@ -417,7 +413,7 @@ footer { background: var(--navy-deep); color: white; }
   .spec-grid { margin-top: 19px; }
   .benefit-list { margin-top: 18px; }
   .product-actions { align-items: stretch; flex-direction: column; margin-top: 22px; }
-  .product-actions .button, .copy-button { width: 100%; }
+  .product-actions .button { width: 100%; }
   .partnership { margin-bottom: 68px; padding: 46px 22px; border-radius: 24px; }
   .partnership h2 { font-size: 39px; }
   .partnership .button { width: 100%; }
@@ -433,7 +429,6 @@ footer { background: var(--navy-deep); color: white; }
   .product-dialog-body { padding: 26px 20px 34px; }
   .detail-lead { font-size: 15px; }
   .detail-columns { grid-template-columns: 1fr; gap: 28px; margin-top: 28px; }
-  .toast { bottom: 76px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

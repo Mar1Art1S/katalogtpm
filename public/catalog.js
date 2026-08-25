@@ -15,11 +15,9 @@
   const productDialogTitle = document.querySelector("#product-dialog-title");
   const productDialogContent = document.querySelector("#product-dialog-content");
   const productDialogClose = document.querySelector(".product-dialog-close");
-  const toast = document.querySelector("#toast");
   const progress = document.querySelector(".scroll-progress span");
   let activeFilter = "all";
   let detailsTrigger = null;
-  let toastTimer;
 
   const normalize = (value) => value
     .toLocaleLowerCase("uk-UA")
@@ -142,40 +140,6 @@
     productDialogContent.replaceChildren();
     detailsTrigger?.focus();
     detailsTrigger = null;
-  });
-
-  const showToast = (message) => {
-    toast.textContent = message;
-    toast.classList.add("is-visible");
-    window.clearTimeout(toastTimer);
-    toastTimer = window.setTimeout(() => toast.classList.remove("is-visible"), 1800);
-  };
-
-  const copyText = async (text) => {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(text);
-      return;
-    }
-    const helper = document.createElement("textarea");
-    helper.value = text;
-    helper.setAttribute("readonly", "");
-    helper.style.position = "fixed";
-    helper.style.opacity = "0";
-    document.body.appendChild(helper);
-    helper.select();
-    document.execCommand("copy");
-    helper.remove();
-  };
-
-  document.querySelectorAll(".copy-button").forEach((button) => {
-    button.addEventListener("click", async () => {
-      try {
-        await copyText(button.dataset.copy);
-        showToast("Назву товару скопійовано");
-      } catch {
-        showToast("Не вдалося скопіювати");
-      }
-    });
   });
 
   const updateProgress = () => {
