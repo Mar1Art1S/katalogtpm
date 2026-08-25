@@ -11,9 +11,14 @@
   const dialogImage = document.querySelector("#dialog-image");
   const dialogTitle = document.querySelector("#dialog-title");
   const dialogClose = document.querySelector(".dialog-close");
+  const productDialog = document.querySelector("#product-dialog");
+  const productDialogTitle = document.querySelector("#product-dialog-title");
+  const productDialogContent = document.querySelector("#product-dialog-content");
+  const productDialogClose = document.querySelector(".product-dialog-close");
   const toast = document.querySelector("#toast");
   const progress = document.querySelector(".scroll-progress span");
   let activeFilter = "all";
+  let detailsTrigger = null;
   let toastTimer;
 
   const normalize = (value) => value
@@ -108,6 +113,35 @@
   dialog.addEventListener("close", () => {
     document.body.classList.remove("dialog-open");
     dialogImage.removeAttribute("src");
+  });
+
+  const closeProductDialog = () => {
+    if (productDialog.open) productDialog.close();
+  };
+
+  document.querySelectorAll(".details-open").forEach((button) => {
+    button.addEventListener("click", () => {
+      const template = document.getElementById(button.dataset.details);
+      if (!(template instanceof HTMLTemplateElement)) return;
+
+      detailsTrigger = button;
+      productDialogTitle.textContent = button.dataset.title;
+      productDialogContent.replaceChildren(template.content.cloneNode(true));
+      productDialogContent.scrollTop = 0;
+      productDialog.showModal();
+      document.body.classList.add("dialog-open");
+    });
+  });
+
+  productDialogClose.addEventListener("click", closeProductDialog);
+  productDialog.addEventListener("click", (event) => {
+    if (event.target === productDialog) closeProductDialog();
+  });
+  productDialog.addEventListener("close", () => {
+    document.body.classList.remove("dialog-open");
+    productDialogContent.replaceChildren();
+    detailsTrigger?.focus();
+    detailsTrigger = null;
   });
 
   const showToast = (message) => {
