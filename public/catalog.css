@@ -236,19 +236,17 @@ img { max-width: 100%; }
 .zoom-label { position: absolute; right: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; min-height: 37px; padding: 0 13px; border-radius: 999px; background: rgba(4, 29, 66, .92); color: white; font-size: 11px; font-weight: 850; box-shadow: 0 8px 24px rgba(4,29,66,.25); backdrop-filter: blur(7px); }
 .zoom-label b { color: #ffad42; }
 .product-content { min-width: 0; }
-.product-topline { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 20px; color: var(--card-accent); font-size: 10px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
-.product-type { flex: 0 0 auto; padding: 7px 10px; border: 1px solid color-mix(in srgb, var(--card-accent) 28%, white); border-radius: 999px; background: color-mix(in srgb, var(--card-accent) 9%, white); letter-spacing: .08em; }
+.product-type { flex: 0 0 auto; padding: 7px 10px; border: 1px solid color-mix(in srgb, var(--card-accent) 28%, white); border-radius: 999px; background: color-mix(in srgb, var(--card-accent) 9%, white); color: var(--card-accent); font-size: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.seller-label { margin: 0 0 9px; color: var(--card-accent); font-size: 10px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
 .product-card h3 { margin: 0; color: var(--navy); font-size: clamp(34px, 4vw, 52px); line-height: 1; letter-spacing: -.05em; }
-.product-subtitle { margin: 20px 0 0; color: var(--muted); font-size: 18px; line-height: 1.58; }
-.tag-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 22px; }
+.product-subtitle { margin: 16px 0 0; color: var(--muted); font-size: 18px; line-height: 1.58; }
+.usage-section { margin-top: 25px; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 0; }
 .tag-list span { padding: 7px 11px; border: 1px solid #dfe7ef; border-radius: 999px; background: #f8fafc; color: #526479; font-size: 11px; font-weight: 750; }
-.tag-colors span:nth-child(1) { box-shadow: inset 4px 0 #1c232e; }
-.tag-colors span:nth-child(2) { box-shadow: inset 4px 0 #cbd3dc; }
-.tag-colors span:nth-child(3) { box-shadow: inset 4px 0 #d92727; }
-.tag-colors span:nth-child(4) { box-shadow: inset 4px 0 #1769c2; }
-.tag-colors span:nth-child(5) { box-shadow: inset 4px 0 #e6c31c; }
-.tag-colors span:nth-child(6) { box-shadow: inset 4px 0 #885022; }
-.tag-colors span:nth-child(7) { box-shadow: inset 4px 0 #2d7e38; }
+.product-identity { margin-top: 27px; padding: 18px 19px; border: 1px solid color-mix(in srgb, var(--card-accent) 18%, var(--line)); border-radius: 17px; background: color-mix(in srgb, var(--card-accent) 5%, white); }
+.product-name-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.product-name { margin: 0; color: var(--navy); font-size: clamp(23px, 3vw, 32px); line-height: 1.08; letter-spacing: -.035em; }
+.product-category { margin: 9px 0 0; color: var(--card-accent); font-size: 9px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
 .spec-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin: 26px 0 0; overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: var(--line); }
 .spec-grid div { min-width: 0; padding: 15px; background: #f8fafc; }
 .spec-grid dt { color: #7a899b; font-size: 9px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
@@ -406,10 +404,12 @@ footer { background: var(--navy-deep); color: white; }
   .product-card { grid-template-columns: 1fr; gap: 28px; min-height: 0; padding: 18px; border-radius: 24px; }
   .product-card:nth-child(even) .product-media { order: initial; }
   .image-open, .image-open img { max-height: 590px; }
-  .product-topline { margin-bottom: 14px; }
   .product-card h3 { font-size: 32px; }
   .product-subtitle { margin-top: 14px; font-size: 15px; }
-  .tag-list { margin-top: 16px; }
+  .usage-section { margin-top: 21px; }
+  .product-identity { margin-top: 22px; padding: 16px; }
+  .product-name-row { align-items: flex-start; }
+  .product-name { font-size: 24px; }
   .spec-grid { margin-top: 19px; }
   .benefit-list { margin-top: 18px; }
   .product-actions { align-items: stretch; flex-direction: column; margin-top: 22px; }
