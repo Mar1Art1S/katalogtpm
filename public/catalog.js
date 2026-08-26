@@ -97,7 +97,7 @@
   document.querySelectorAll(".image-open").forEach((button) => {
     button.addEventListener("click", () => {
       dialogImage.src = button.dataset.image;
-      dialogImage.alt = `Інфографіка товару ${button.dataset.title}`;
+      dialogImage.alt = `Зображення застосування товару ${button.dataset.title}`;
       dialogTitle.textContent = button.dataset.title;
       dialog.showModal();
       document.body.classList.add("dialog-open");
