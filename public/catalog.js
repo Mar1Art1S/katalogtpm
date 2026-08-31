@@ -123,12 +123,14 @@
       let dialogLabel = "Технічні відомості про товар";
 
       if (button.classList.contains("price-open")) {
-        const priceGrid = button.closest(".product-card")?.querySelector(".price-grid");
+        const priceTemplate = button.closest(".product-card")?.querySelector(".card-price-template");
         const pricingTemplate = document.querySelector("#pricing-dialog-template");
-        if (!(priceGrid instanceof HTMLElement) || !(pricingTemplate instanceof HTMLTemplateElement)) return;
+        if (!(priceTemplate instanceof HTMLTemplateElement) || !(pricingTemplate instanceof HTMLTemplateElement)) return;
 
         content = pricingTemplate.content.cloneNode(true);
         const priceSlot = content.querySelector("[data-price-slot]");
+        const priceGrid = priceTemplate.content.querySelector(".price-grid");
+        if (!(priceGrid instanceof HTMLElement)) return;
         const priceCopy = priceGrid.cloneNode(true);
         priceCopy.classList.add("pricing-dialog-grid");
         const wholesaleTier = priceCopy.querySelector(".price-tier-wholesale");
