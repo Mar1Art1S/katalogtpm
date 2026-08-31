@@ -40,3 +40,6 @@ next-env.d.ts
 
 # local source artwork (optimized copies are published from /public/products)
 /img/
+
+.vercel
+.env*
