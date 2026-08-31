@@ -117,14 +117,34 @@
     if (productDialog.open) productDialog.close();
   };
 
-  document.querySelectorAll(".details-open").forEach((button) => {
+  document.querySelectorAll(".details-open, .price-open").forEach((button) => {
     button.addEventListener("click", () => {
-      const template = document.getElementById(button.dataset.details);
-      if (!(template instanceof HTMLTemplateElement)) return;
+      let content;
+      let dialogLabel = "Технічні відомості про товар";
+
+      if (button.classList.contains("price-open")) {
+        const priceGrid = button.closest(".product-card")?.querySelector(".price-grid");
+        const pricingTemplate = document.querySelector("#pricing-dialog-template");
+        if (!(priceGrid instanceof HTMLElement) || !(pricingTemplate instanceof HTMLTemplateElement)) return;
+
+        content = pricingTemplate.content.cloneNode(true);
+        const priceSlot = content.querySelector("[data-price-slot]");
+        const priceCopy = priceGrid.cloneNode(true);
+        priceCopy.classList.add("pricing-dialog-grid");
+        const wholesaleTier = priceCopy.querySelector(".price-tier-wholesale");
+        if (wholesaleTier) priceCopy.append(wholesaleTier);
+        priceSlot?.replaceWith(priceCopy);
+        dialogLabel = button.dataset.dialogLabel || "Фасування і ціни на товар";
+      } else {
+        const template = document.getElementById(button.dataset.details);
+        if (!(template instanceof HTMLTemplateElement)) return;
+        content = template.content.cloneNode(true);
+      }
 
       detailsTrigger = button;
       productDialogTitle.textContent = button.dataset.title;
-      productDialogContent.replaceChildren(template.content.cloneNode(true));
+      productDialogContent.replaceChildren(content);
+      productDialogContent.setAttribute("aria-label", dialogLabel);
       productDialogContent.scrollTop = 0;
       productDialog.showModal();
       document.body.classList.add("dialog-open");
