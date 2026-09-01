@@ -22,6 +22,7 @@
   <link rel="canonical" href="https://techpolymers-catalog-ua.fotokesh.chatgpt.site/catalog.html">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="catalog.css">
+  <script src="catalog-data.js" defer></script>
   <script src="catalog.js" defer></script>
 </head>
 <body>
@@ -63,12 +64,14 @@
 
         <div class="hero-panel" aria-label="Категорії каталогу">
           <p class="panel-label">У каталозі</p>
-          <div class="hero-count"><strong>09</strong><span>спеціалізованих<br>рішень</span></div>
+          <div class="hero-count"><strong>19</strong><span>товарів<br>у каталозі</span></div>
           <div class="category-stack">
             <span><b>01</b> Лиття та форми</span>
             <span><b>02</b> Професійні клеї</span>
-            <span><b>03</b> Покриття й гідроізоляція</span>
-            <span><b>04</b> Пігментні системи</span>
+            <span><b>03</b> Покриття й сполучні</span>
+            <span><b>04</b> Теплоізоляція ППУ</span>
+            <span><b>05</b> Гідроізоляція</span>
+            <span><b>06</b> Добавки й пігменти</span>
           </div>
         </div>
       </div>
@@ -101,11 +104,13 @@
           <button class="filter-chip" type="button" data-filter="casting" aria-pressed="false">Лиття</button>
           <button class="filter-chip" type="button" data-filter="adhesives" aria-pressed="false">Клеї</button>
           <button class="filter-chip" type="button" data-filter="coatings" aria-pressed="false">Покриття</button>
+          <button class="filter-chip" type="button" data-filter="insulation" aria-pressed="false">Теплоізоляція</button>
           <button class="filter-chip" type="button" data-filter="waterproofing" aria-pressed="false">Гідроізоляція</button>
+          <button class="filter-chip" type="button" data-filter="additives" aria-pressed="false">Добавки</button>
           <button class="filter-chip" type="button" data-filter="pigments" aria-pressed="false">Пігменти</button>
         </div>
         <div class="results-meta">
-          <p id="results-count" aria-live="polite">Показано 9 із 9 товарів</p>
+          <p id="results-count" aria-live="polite">Показано 19 із 19 товарів</p>
           <button id="reset-filters" class="reset-button" type="button" hidden>Скинути фільтри</button>
         </div>
       </div>
@@ -600,7 +605,7 @@
     <div class="product-dialog-shell">
       <header class="product-dialog-header">
         <div>
-          <p>Відомості про товар</p>
+          <p id="product-dialog-kicker">Відомості про товар</p>
           <h2 id="product-dialog-title">Деталі товару</h2>
         </div>
         <button class="product-dialog-close" type="button" aria-label="Закрити вікно з відомостями про товар">×</button>
@@ -864,6 +869,9 @@
     <p class="detail-note"><strong>Порада:</strong> починайте з мінімального дозування та проведіть пробне змішування, адже насиченість залежить від кольору основи й потрібного результату.</p>
   </template>
 
-  <noscript><p class="noscript">Пошук, збільшення зображень, фасування, ціни й технічні деталі товару потребують JavaScript. Назва, застосування та ключові характеристики залишаються видимими в картках каталогу.</p></noscript>
+  <noscript>
+    <style>.product-list,.catalog-tools{display:none!important}</style>
+    <p class="noscript">Для показу всіх 19 товарів, фасувань, цін і технічних відомостей увімкніть JavaScript у браузері.</p>
+  </noscript>
 </body>
 </html>
