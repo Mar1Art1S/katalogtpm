@@ -279,10 +279,32 @@
     if (progress) progress.style.transform = `scaleX(${ratio})`;
   };
 
+  const setupButtonAttention = () => {
+    const mobileViewport = window.matchMedia("(max-width: 720px)");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (!mobileViewport.matches || reducedMotion.matches || !("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const card = entry.target.closest(".product-card");
+        if (!card) return;
+        card.classList.add("is-button-highlighted");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: .55, rootMargin: "0px 0px -8% 0px" });
+
+    productCards.forEach((card) => {
+      const actions = card.querySelector(".product-footer-actions");
+      if (actions) observer.observe(actions);
+    });
+  };
+
   window.addEventListener("scroll", updateProgress, { passive: true });
   window.addEventListener("resize", updateProgress);
   const currentYear = document.querySelector("#current-year");
   if (currentYear) currentYear.textContent = String(new Date().getFullYear());
+  setupButtonAttention();
   applyFilters();
   updateProgress();
 })();
