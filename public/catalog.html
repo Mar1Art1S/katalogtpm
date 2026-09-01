@@ -36,12 +36,12 @@
       </a>
       <nav class="main-nav" aria-label="Основна навігація">
         <a href="#catalog">Каталог</a>
-        <a href="#partnership">Партнерам</a>
+        <button type="button" data-partner-open aria-haspopup="dialog" aria-controls="product-dialog">Партнерам</button>
         <a href="#contacts">Контакти</a>
       </nav>
-      <a class="button button-small button-primary header-button" href="tel:+380503403547" aria-label="Зателефонувати щодо партнерства: +38 050 340 35 47">
-        Партнерство: +38 050 340 35 47
-      </a>
+      <button class="button button-small button-primary header-button" type="button" data-partner-open aria-haspopup="dialog" aria-controls="product-dialog">
+        Партнерам <span aria-hidden="true">＋</span>
+      </button>
     </div>
     <div class="scroll-progress" aria-hidden="true"><span></span></div>
   </header>
@@ -58,7 +58,7 @@
           </p>
           <div class="hero-actions">
             <a class="button button-accent" href="#catalog">Переглянути всі товари <span aria-hidden="true">↓</span></a>
-            <a class="text-link" href="#partnership">Умови для продавців <span aria-hidden="true">↗</span></a>
+            <button class="text-link" type="button" data-partner-open aria-haspopup="dialog" aria-controls="product-dialog">Умови для магазинів <span aria-hidden="true">↗</span></button>
           </div>
         </div>
 
@@ -563,7 +563,7 @@
         <p class="eyebrow"><span></span> Для магазинів і виробництв</p>
         <h2 id="partnership-title">Додайте професійні матеріали до свого асортименту</h2>
         <p>Щоб обговорити партнерство, фасування та гуртові умови, зателефонуйте нам за номером +38 050 340 35 47.</p>
-        <a class="button button-accent" href="tel:+380503403547" aria-label="Зателефонувати щодо партнерства: +38 050 340 35 47">Зателефонувати: +38 050 340 35 47 <span aria-hidden="true">↗</span></a>
+        <button class="button button-accent" type="button" data-partner-open aria-haspopup="dialog" aria-controls="product-dialog">Умови та стартові набори <span aria-hidden="true">＋</span></button>
       </div>
       <div class="partnership-points">
         <div><b>01</b><span><strong>Зрозумілий вибір</strong>Матеріали згруповані за задачами й застосуванням.</span></div>
@@ -584,14 +584,14 @@
       </div>
       <div class="footer-links">
         <a href="#catalog">Каталог</a>
-        <a href="#partnership">Партнерам</a>
+        <button type="button" data-partner-open aria-haspopup="dialog" aria-controls="product-dialog">Партнерам</button>
         <a href="tel:+380503403547" aria-label="Зателефонувати щодо партнерства: +38 050 340 35 47">Партнерство: +38 050 340 35 47 <span aria-hidden="true">↗</span></a>
       </div>
       <p class="copyright">© <span id="current-year">2026</span> Хімпостачальник</p>
     </div>
   </footer>
 
-  <a class="mobile-cta" href="tel:+380503403547" aria-label="Зателефонувати щодо партнерства: +38 050 340 35 47">Партнерство: +38 050 340 35 47 <span aria-hidden="true">↗</span></a>
+  <button class="mobile-cta" type="button" data-partner-open aria-haspopup="dialog" aria-controls="product-dialog">Партнерам: умови та набори <span aria-hidden="true">＋</span></button>
 
   <dialog class="image-dialog" id="image-dialog" aria-labelledby="dialog-title">
     <div class="dialog-bar">
@@ -608,11 +608,287 @@
           <p id="product-dialog-kicker">Відомості про товар</p>
           <h2 id="product-dialog-title">Деталі товару</h2>
         </div>
-        <button class="product-dialog-close" type="button" aria-label="Закрити вікно з відомостями про товар">×</button>
+        <button class="product-dialog-close" type="button" aria-label="Закрити вікно">×</button>
       </header>
       <div class="product-dialog-body" id="product-dialog-content" tabindex="0" aria-label="Відомості про товар"></div>
     </div>
   </dialog>
+
+  <template id="partner-dialog-template">
+    <div class="partner-modal">
+      <section class="partner-intro" id="partner-start" aria-labelledby="partner-start-title">
+        <p class="partner-section-kicker">Для магазинів, торгових точок і виробництв</p>
+        <h3 id="partner-start-title">Підберемо асортимент і розрахуємо умови під вашу задачу</h3>
+        <p>Партнерські ціни, мінімальне замовлення, наявність і дата відвантаження підтверджуються менеджером для вибраних товарів, фасувань та кількості.</p>
+        <div class="partner-intro-actions">
+          <a class="button button-accent" href="tel:+380503403547" aria-label="Обговорити партнерство телефоном: +38 050 340 35 47">Обговорити: +38 050 340 35 47 <span aria-hidden="true">↗</span></a>
+          <button class="button button-price" type="button" data-partner-jump="partner-request">Підготувати заявку <span aria-hidden="true">↓</span></button>
+        </div>
+        <div class="partner-facts" aria-label="Переваги партнерського формату">
+          <div><strong>Підбір під магазин</strong><span>Категорії та фасування під ваш формат і покупців.</span></div>
+          <div><strong>Індивідуальна ціна</strong><span>Розрахунок після вибору товарів і кількості.</span></div>
+          <div><strong>Технічна підтримка</strong><span>Допомога з вибором, сумісністю та застосуванням.</span></div>
+          <div><strong>Швидкий контакт</strong><span>Телефон і готова SMS-заявка без переходу на інші сайти.</span></div>
+        </div>
+      </section>
+
+      <nav class="partner-dialog-nav" aria-label="Розділи умов партнерства">
+        <button type="button" data-partner-jump="partner-terms">Умови</button>
+        <button type="button" data-partner-jump="partner-kits">Стартові набори</button>
+        <button type="button" data-partner-jump="partner-profit">Заробіток</button>
+        <button type="button" data-partner-jump="partner-support">Підтримка</button>
+        <button type="button" data-partner-jump="partner-faq">FAQ</button>
+        <button type="button" data-partner-jump="partner-request">Заявка</button>
+      </nav>
+
+      <section class="partner-section" id="partner-terms" aria-labelledby="partner-terms-title">
+        <div class="partner-section-heading">
+          <p class="partner-section-kicker">01 · Комерційні умови</p>
+          <h3 id="partner-terms-title">Формат співпраці залежить від асортименту й обсягу</h3>
+          <p>Фіксовані знижки без розрахунку не вказуємо: менеджер підтверджує актуальну пропозицію до оформлення.</p>
+        </div>
+        <div class="partner-tier-grid">
+          <article class="partner-tier">
+            <span>Початок</span>
+            <h4>Пробне замовлення</h4>
+            <p>Кілька позицій у доступних фасуваннях, щоб перевірити попит у вашому магазині.</p>
+            <ul>
+              <li>Мінімальна партія залежить від конкретного товару</li>
+              <li>Склад набору підбирається під формат точки</li>
+              <li>Ціна підтверджується після вибору кількості</li>
+            </ul>
+          </article>
+          <article class="partner-tier partner-tier-featured">
+            <span>Партнерство</span>
+            <h4>Регулярні закупівлі</h4>
+            <p>Персональний розрахунок для погодженого асортименту та повторних замовлень.</p>
+            <ul>
+              <li>Партнерська й, за наявності, рекомендована роздрібна ціна</li>
+              <li>Узгоджений склад наступних поставок</li>
+              <li>Консультація щодо товарів-компаньйонів</li>
+              <li>Резерв товару або пріоритет виробництва — лише після окремого підтвердження</li>
+            </ul>
+          </article>
+          <article class="partner-tier">
+            <span>Великий обсяг</span>
+            <h4>Промисловий опт</h4>
+            <p>Окремий розрахунок для великих партій та замовлень орієнтовно від однієї тонни.</p>
+            <ul>
+              <li>Ціна залежить від продукту, фасування та обсягу</li>
+              <li>Термін комплектації підтверджується окремо</li>
+              <li>Формат відвантаження погоджується до рахунку</li>
+            </ul>
+          </article>
+        </div>
+        <p class="partner-disclaimer"><strong>Важливо:</strong> ціни в картках каталогу є інформаційними орієнтирами. Партнерська пропозиція діє після підтвердження менеджером.</p>
+
+        <div class="partner-process" aria-label="Як почати співпрацю">
+          <article><b>01</b><h4>Розкажіть про магазин</h4><p>Формат торгової точки, місто та основні покупці.</p></article>
+          <article><b>02</b><h4>Оберіть товари</h4><p>Категорії, потрібні фасування та орієнтовна кількість.</p></article>
+          <article><b>03</b><h4>Отримайте розрахунок</h4><p>Склад замовлення, ціни, наявність, документи, оплату й доставку погоджуємо до виставлення рахунку.</p></article>
+        </div>
+      </section>
+
+      <section class="partner-section" id="partner-kits" aria-labelledby="partner-kits-title">
+        <div class="partner-section-heading">
+          <p class="partner-section-kicker">02 · Стартові набори</p>
+          <h3 id="partner-kits-title">Варіанти першого асортименту</h3>
+          <p>Це орієнтири для підбору, а не готові комплекти з фіксованою ціною. Склад, сумісність, фасування та вартість погоджуються індивідуально.</p>
+        </div>
+        <div class="partner-kit-grid">
+          <article class="partner-kit-card">
+            <span>01</span><h4>Пробний асортимент</h4>
+            <p>Кілька зрозумілих позицій у доступних невеликих фасуваннях для перевірки попиту.</p>
+            <ul><li>Товари з різних базових категорій</li><li>Короткі підказки для продавця</li><li>Можливість доповнити після першого продажу</li></ul>
+            <button type="button" data-partner-kit="Пробний асортимент">Обрати цей напрям <span aria-hidden="true">→</span></button>
+          </article>
+          <article class="partner-kit-card">
+            <span>02</span><h4>Клейові матеріали</h4>
+            <p>Універсальні поліуретанові клеї та D4-рішення для будівельних і деревообробних задач.</p>
+            <ul><li>Рішення для різних основ</li><li>Фасування для роздробу й виробництва</li><li>Порівняння за призначенням</li></ul>
+            <button type="button" data-partner-kit="Клейові матеріали">Обрати цей напрям <span aria-hidden="true">→</span></button>
+          </article>
+          <article class="partner-kit-card">
+            <span>03</span><h4>Покриття та благоустрій</h4>
+            <p>Матеріали для гумової крихти, штучної трави, каменю та декоративних поверхонь.</p>
+            <ul><li>Сполучні й клеї</li><li>Захисні та декоративні покриття</li><li>Підбір під основу й умови роботи</li></ul>
+            <button type="button" data-partner-kit="Покриття та благоустрій">Обрати цей напрям <span aria-hidden="true">→</span></button>
+          </article>
+          <article class="partner-kit-card">
+            <span>04</span><h4>Теплоізоляція</h4>
+            <p>ППУ-системи для заливки або напилення відповідно до задачі та обладнання клієнта.</p>
+            <ul><li>Підбір способу нанесення</li><li>Уточнення продуктивності й фасування</li><li>Технічні умови роботи</li></ul>
+            <button type="button" data-partner-kit="Теплоізоляція">Обрати цей напрям <span aria-hidden="true">→</span></button>
+          </article>
+          <article class="partner-kit-card">
+            <span>05</span><h4>Рідкі пластики та декор</h4>
+            <p>Матеріали для формування виробів, прототипів, декору й кольорових поліуретанових систем.</p>
+            <ul><li>Швидкі та повільні системи</li><li>Пігментні пасти</li><li>Підбір під форму й готовий виріб</li></ul>
+            <button type="button" data-partner-kit="Рідкі пластики та декор">Обрати цей напрям <span aria-hidden="true">→</span></button>
+          </article>
+          <article class="partner-kit-card partner-kit-custom">
+            <span>06</span><h4>Індивідуальний набір</h4>
+            <p>Якщо магазин працює з кількома сегментами, складемо змішаний асортимент під ваші запити.</p>
+            <ul><li>Категорії під цільових покупців</li><li>Узгоджені фасування</li><li>План першого й повторного замовлення</li></ul>
+            <button type="button" data-partner-kit="Індивідуальний набір">Скласти свій набір <span aria-hidden="true">→</span></button>
+          </article>
+        </div>
+      </section>
+
+      <section class="partner-section" id="partner-profit" aria-labelledby="partner-profit-title">
+        <div class="partner-section-heading">
+          <p class="partner-section-kicker">03 · Заробіток магазину</p>
+          <h3 id="partner-profit-title">Порахуйте орієнтовний валовий прибуток</h3>
+          <p>Введіть погоджену закупівельну та планову роздрібну ціну. Калькулятор не враховує доставку, податки й операційні витрати.</p>
+        </div>
+        <div class="partner-calculator" id="partner-profit-calculator">
+          <div class="partner-calculator-fields">
+            <label>Закупівельна ціна за одиницю, ₴<input id="partner-buy-price" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Наприклад, 500"></label>
+            <label>Роздрібна ціна за одиницю, ₴<input id="partner-retail-price" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Наприклад, 650"></label>
+            <label>Кількість одиниць<input id="partner-quantity" type="number" min="1" step="1" inputmode="numeric" value="10"></label>
+          </div>
+          <div class="partner-calculator-results" aria-live="polite">
+            <div><span>Закупівля</span><strong id="partner-purchase-total">—</strong></div>
+            <div><span>Можлива виручка</span><strong id="partner-revenue-total">—</strong></div>
+            <div><span>Валовий прибуток</span><strong id="partner-profit-total">—</strong></div>
+            <div><span>Валова маржа</span><strong id="partner-margin-total">—</strong></div>
+          </div>
+          <p id="partner-calculator-status">Введіть дві ціни, щоб побачити розрахунок.</p>
+        </div>
+      </section>
+
+      <section class="partner-section" id="partner-assortment" aria-labelledby="partner-assortment-title">
+        <div class="partner-section-heading">
+          <p class="partner-section-kicker">04 · Асортимент і продаж</p>
+          <h3 id="partner-assortment-title">Як сформувати зрозумілу пропозицію для покупця</h3>
+          <p>Товари можна представити за задачами. Остаточну сумісність матеріалів в одному проєкті підтверджує фахівець.</p>
+        </div>
+        <div class="partner-assortment-grid">
+          <article><h4>Лиття та декор</h4><p>Рідкі пластики, пігментні пасти й підбір системи за швидкістю роботи.</p></article>
+          <article><h4>Дерево й меблі</h4><p>D4-клеї різної швидкості та рішення для професійного склеювання.</p></article>
+          <article><h4>Будівництво й ремонт</h4><p>Універсальні клеї, гідроізоляція, теплоізоляція та захисні матеріали.</p></article>
+          <article><h4>Благоустрій</h4><p>Сполучні для гумової крихти, клей для штучної трави й покриття для каменю.</p></article>
+        </div>
+        <div class="partner-choice-guide" aria-label="Підбір товарів за призначенням">
+          <div><strong>Рідкі пластики</strong><span>Форми, копії деталей, декор і прототипи</span></div>
+          <div><strong>Клеї</strong><span>Дерево, будівельні матеріали, трава та різні основи</span></div>
+          <div><strong>Покриття</strong><span>Захист і декоративний ефект поверхні</span></div>
+          <div><strong>ППУ-системи</strong><span>Заливна або напилювана теплоізоляція</span></div>
+          <div><strong>Сполучні</strong><span>Покриття з гумової крихти й мінеральних матеріалів</span></div>
+          <div><strong>Добавки</strong><span>Пігментація та спеціальні властивості систем</span></div>
+        </div>
+        <p class="partner-disclaimer"><strong>Позначки для полиці:</strong> без підтвердженої статистики використовуємо «за призначенням» і «для вашого формату магазину». Позначки «хіт», «новинка» або «висока маржинальність» додаються лише за наявності реальних даних.</p>
+      </section>
+
+      <section class="partner-section" id="partner-support" aria-labelledby="partner-support-title">
+        <div class="partner-section-heading">
+          <p class="partner-section-kicker">05 · Підтримка магазину</p>
+          <h3 id="partner-support-title">Матеріали й супровід для впевненого продажу</h3>
+        </div>
+        <div class="partner-support-grid">
+          <article><span aria-hidden="true">◎</span><h4>Фото й описи</h4><p>Можливість отримати матеріали для карток товару, цінників і консультації покупців погоджується з менеджером після вибору асортименту.</p></article>
+          <article><span aria-hidden="true">?</span><h4>Підказки продавцю</h4><p>Кому рекомендувати продукт, які питання поставити та які технічні обмеження пояснити.</p></article>
+          <article><span aria-hidden="true">↔</span><h4>Порівняння продуктів</h4><p>Допомога у виборі за призначенням і підтвердженими характеристиками конкретної системи.</p></article>
+          <article><span aria-hidden="true">▤</span><h4>Документація</h4><p>Технічні листи, паспорти безпеки та інші доступні документи — для конкретного продукту за наявності.</p></article>
+          <article><span aria-hidden="true">◌</span><h4>Тестові зразки</h4><p>Можливість, склад і вартість зразків уточнюються окремо залежно від товару.</p></article>
+          <article><span aria-hidden="true">✓</span><h4>Підтверджені приклади</h4><p>Реальні приклади застосування можна запросити у менеджера; результат залежить від основи й технології.</p></article>
+        </div>
+
+        <div class="partner-service-grid">
+          <article><h4>Наявність і відвантаження</h4><p>Залишок, строк комплектації та дату відвантаження підтверджуємо для кожного замовлення.</p></article>
+          <article><h4>Доставка й оплата</h4><p>Спосіб, вартість доставки, формат оплати та документообіг погоджуються до виставлення рахунку.</p></article>
+          <article><h4>Повернення та претензії</h4><p>Порядок фіксується в погоджених документах до поставки; щодо конкретної ситуації звертайтеся до менеджера.</p></article>
+          <article><h4>Повторні замовлення</h4><p>Для регулярних закупівель можна погодити асортимент, орієнтовний графік і формат консультацій.</p></article>
+        </div>
+      </section>
+
+      <section class="partner-section" id="partner-faq" aria-labelledby="partner-faq-title">
+        <div class="partner-section-heading">
+          <p class="partner-section-kicker">06 · Часті запитання</p>
+          <h3 id="partner-faq-title">Що варто уточнити до першого замовлення</h3>
+        </div>
+        <div class="partner-faq-list">
+          <details><summary>Яке мінімальне замовлення?</summary><p>Залежить від товару та доступного фасування. Менеджер підтвердить актуальну мінімальну партію після вибору позицій.</p></details>
+          <details><summary>Як дізнатися партнерську ціну?</summary><p>Повідомте товари, фасування й кількість — отримаєте індивідуальний розрахунок і рекомендовану роздрібну ціну, якщо вона визначена.</p></details>
+          <details><summary>Чи є товар у наявності?</summary><p>Наявність, строк комплектації та дату відвантаження підтверджуємо перед оформленням.</p></details>
+          <details><summary>Чи можна отримати тестові зразки?</summary><p>Можливість, склад і вартість залежать від конкретного продукту та погоджуються окремо.</p></details>
+          <details><summary>Які документи надаються?</summary><p>Комплект доступних технічних і супровідних документів залежить від продукту. Уточніть його до замовлення.</p></details>
+          <details><summary>Як відбуваються доставка й оплата?</summary><p>Формат доставки, її вартість і спосіб оплати погоджуються з менеджером до виставлення рахунку.</p></details>
+          <details><summary>Як вирішуються повернення або претензії?</summary><p>Порядок визначається погодженими документами та умовами конкретної поставки.</p></details>
+        </div>
+      </section>
+
+      <section class="partner-request" id="partner-request" aria-labelledby="partner-request-title">
+        <div class="partner-request-copy">
+          <p class="partner-section-kicker">07 · Заявка для магазину</p>
+          <h3 id="partner-request-title">Підготуйте дані для розрахунку</h3>
+          <p>Заповніть коротку форму — кнопка сформує SMS на номер +38 050 340 35 47. Повідомлення не надсилається автоматично: ви зможете перевірити його перед відправленням.</p>
+          <a href="tel:+380503403547" aria-label="Зателефонувати щодо партнерства: +38 050 340 35 47">Або зателефонуйте: <strong>+38 050 340 35 47</strong> <span aria-hidden="true">↗</span></a>
+        </div>
+        <form class="partner-request-form" id="partner-request-form">
+          <div class="partner-form-grid">
+            <label>Контактна особа<input name="contact" type="text" autocomplete="name" required placeholder="Ваше ім’я"></label>
+            <label>Телефон<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="+38 0__ ___ __ __"></label>
+            <label>Магазин або компанія<input name="company" type="text" autocomplete="organization" placeholder="Назва"></label>
+            <label>Місто<input name="city" type="text" autocomplete="address-level2" placeholder="Ваше місто"></label>
+            <label>Формат роботи
+              <select name="storeType">
+                <option value="Будівельний магазин">Будівельний магазин</option>
+                <option value="Магазин матеріалів та інструменту">Магазин матеріалів та інструменту</option>
+                <option value="Меблевий або деревообробний напрям">Меблевий або деревообробний напрям</option>
+                <option value="Виробництво">Виробництво</option>
+                <option value="Інший формат">Інший формат</option>
+              </select>
+            </label>
+            <label>Стартовий набір
+              <select name="starterKit" id="partner-kit-select">
+                <option value="Потрібна рекомендація">Потрібна рекомендація</option>
+                <option value="Пробний асортимент">Пробний асортимент</option>
+                <option value="Клейові матеріали">Клейові матеріали</option>
+                <option value="Покриття та благоустрій">Покриття та благоустрій</option>
+                <option value="Теплоізоляція">Теплоізоляція</option>
+                <option value="Рідкі пластики та декор">Рідкі пластики та декор</option>
+                <option value="Індивідуальний набір">Індивідуальний набір</option>
+              </select>
+            </label>
+          </div>
+          <fieldset class="partner-category-fieldset">
+            <legend>Які категорії цікавлять</legend>
+            <label><input type="checkbox" name="categories" value="Рідкі пластики">Рідкі пластики</label>
+            <label><input type="checkbox" name="categories" value="Клеї">Клеї</label>
+            <label><input type="checkbox" name="categories" value="Покриття">Покриття</label>
+            <label><input type="checkbox" name="categories" value="Теплоізоляція">Теплоізоляція</label>
+            <label><input type="checkbox" name="categories" value="Гідроізоляція">Гідроізоляція</label>
+            <label><input type="checkbox" name="categories" value="Добавки та пігменти">Добавки та пігменти</label>
+          </fieldset>
+          <div class="partner-form-grid partner-form-grid-bottom">
+            <label>Конкретний товар
+              <select name="product" id="partner-product-select">
+                <option value="Потрібен підбір товару">Потрібен підбір товару</option>
+              </select>
+            </label>
+            <label>Потрібне фасування<input name="packaging" type="text" placeholder="Наприклад, 1,6 кг або 20 кг"></label>
+            <label>Кількість або загальний обсяг<input name="orderQuantity" type="text" inputmode="decimal" placeholder="Наприклад, 10 комплектів або 200 кг"></label>
+            <label>Орієнтовний формат закупівлі
+              <select name="volume">
+                <option value="Пробне замовлення">Пробне замовлення</option>
+                <option value="Регулярні поповнення">Регулярні поповнення</option>
+                <option value="Великий опт">Великий опт</option>
+                <option value="Потрібна консультація">Потрібна консультація</option>
+              </select>
+            </label>
+            <label>Коментар<textarea name="comment" rows="3" placeholder="Товари, фасування, кількість або запитання"></textarea></label>
+          </div>
+          <div class="partner-form-actions">
+            <button class="button button-accent" type="submit">Підготувати SMS-заявку <span aria-hidden="true">→</span></button>
+            <a class="button button-primary" href="tel:+380503403547">Зателефонувати <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="partner-form-note" id="partner-request-note">Остаточні ціни, склад замовлення, наявність, строки та умови поставки діють після підтвердження менеджером.</p>
+          <p class="partner-form-status" id="partner-form-status" aria-live="polite"></p>
+        </form>
+      </section>
+    </div>
+  </template>
 
   <template id="pricing-dialog-template">
     <p class="pricing-lead">Роздрібне фасування та оптові умови для вибраного товару. Ціна за кілограм зменшується зі збільшенням партії.</p>

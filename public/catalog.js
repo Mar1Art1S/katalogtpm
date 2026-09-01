@@ -18,6 +18,8 @@
   const productDialogTitle = document.querySelector("#product-dialog-title");
   const productDialogContent = document.querySelector("#product-dialog-content");
   const productDialogClose = document.querySelector(".product-dialog-close");
+  const partnerDialogTemplate = document.querySelector("#partner-dialog-template");
+  const partnerOpenButtons = Array.from(document.querySelectorAll("[data-partner-open]"));
   const progress = document.querySelector(".scroll-progress span");
   let activeFilter = "all";
   let dialogTrigger = null;
@@ -252,6 +254,146 @@
     productDialog.showModal();
     document.body.classList.add("dialog-open");
   };
+
+  const setupPartnerCalculator = () => {
+    if (!productDialogContent) return;
+    const buyInput = productDialogContent.querySelector("#partner-buy-price");
+    const retailInput = productDialogContent.querySelector("#partner-retail-price");
+    const quantityInput = productDialogContent.querySelector("#partner-quantity");
+    const purchaseOutput = productDialogContent.querySelector("#partner-purchase-total");
+    const revenueOutput = productDialogContent.querySelector("#partner-revenue-total");
+    const profitOutput = productDialogContent.querySelector("#partner-profit-total");
+    const marginOutput = productDialogContent.querySelector("#partner-margin-total");
+    const status = productDialogContent.querySelector("#partner-calculator-status");
+    if (!buyInput || !retailInput || !quantityInput || !purchaseOutput || !revenueOutput || !profitOutput || !marginOutput || !status) return;
+
+    const currency = new Intl.NumberFormat("uk-UA", {
+      style: "currency",
+      currency: "UAH",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2
+    });
+    const percent = new Intl.NumberFormat("uk-UA", { maximumFractionDigits: 1 });
+
+    const updateCalculator = () => {
+      const buyPrice = Number(buyInput.value);
+      const retailPrice = Number(retailInput.value);
+      const quantity = Number(quantityInput.value);
+      const isReady = buyPrice > 0 && retailPrice > 0 && quantity > 0;
+
+      if (!isReady) {
+        [purchaseOutput, revenueOutput, profitOutput, marginOutput].forEach((output) => {
+          output.textContent = "—";
+          output.classList.remove("is-negative");
+        });
+        status.textContent = "Введіть дві ціни, щоб побачити розрахунок.";
+        return;
+      }
+
+      const purchaseTotal = buyPrice * quantity;
+      const revenueTotal = retailPrice * quantity;
+      const grossProfit = revenueTotal - purchaseTotal;
+      const grossMargin = revenueTotal ? (grossProfit / revenueTotal) * 100 : 0;
+
+      purchaseOutput.textContent = currency.format(purchaseTotal);
+      revenueOutput.textContent = currency.format(revenueTotal);
+      profitOutput.textContent = currency.format(grossProfit);
+      marginOutput.textContent = `${percent.format(grossMargin)}%`;
+      profitOutput.classList.toggle("is-negative", grossProfit < 0);
+      marginOutput.classList.toggle("is-negative", grossMargin < 0);
+      status.textContent = grossProfit >= 0
+        ? "Орієнтовний розрахунок готовий. Для точної закупівельної ціни погодьте товар, фасування та кількість."
+        : "Роздрібна ціна нижча за закупівельну — перевірте введені значення.";
+    };
+
+    [buyInput, retailInput, quantityInput].forEach((input) => input.addEventListener("input", updateCalculator));
+    updateCalculator();
+  };
+
+  const setupPartnerNavigation = () => {
+    if (!productDialogContent) return;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const scrollToSection = (sectionId) => {
+      const section = productDialogContent.querySelector(`#${sectionId}`);
+      section?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
+    };
+
+    productDialogContent.querySelectorAll("[data-partner-jump]").forEach((button) => {
+      button.addEventListener("click", () => scrollToSection(button.dataset.partnerJump));
+    });
+
+    const kitSelect = productDialogContent.querySelector("#partner-kit-select");
+    const formStatus = productDialogContent.querySelector("#partner-form-status");
+    productDialogContent.querySelectorAll("[data-partner-kit]").forEach((button) => {
+      button.addEventListener("click", () => {
+        if (kitSelect) kitSelect.value = button.dataset.partnerKit || "Потрібна рекомендація";
+        if (formStatus) formStatus.textContent = `Обрано напрям: ${button.dataset.partnerKit}. Додайте контакти для розрахунку.`;
+        scrollToSection("partner-request");
+        window.setTimeout(() => kitSelect?.focus({ preventScroll: true }), reducedMotion ? 0 : 380);
+      });
+    });
+  };
+
+  const setupPartnerRequest = () => {
+    if (!productDialogContent) return;
+    const form = productDialogContent.querySelector("#partner-request-form");
+    const status = productDialogContent.querySelector("#partner-form-status");
+    if (!form || !status) return;
+
+    const productSelect = form.querySelector("#partner-product-select");
+    products.forEach((product) => {
+      if (!productSelect) return;
+      const option = document.createElement("option");
+      option.value = product.name;
+      option.textContent = product.name;
+      productSelect.append(option);
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+
+      const formData = new FormData(form);
+      const value = (name) => String(formData.get(name) || "").trim();
+      const categories = formData.getAll("categories").map((item) => String(item)).join(", ") || "потрібна рекомендація";
+      const message = [
+        "Вітаю! Хочу обговорити партнерство з Хімпостачальником.",
+        `Контакт: ${value("contact")}`,
+        `Телефон: ${value("phone")}`,
+        value("company") ? `Магазин / компанія: ${value("company")}` : "",
+        value("city") ? `Місто: ${value("city")}` : "",
+        `Формат: ${value("storeType")}`,
+        `Стартовий набір: ${value("starterKit")}`,
+        `Категорії: ${categories}`,
+        `Товар: ${value("product")}`,
+        value("packaging") ? `Фасування: ${value("packaging")}` : "",
+        value("orderQuantity") ? `Кількість / обсяг: ${value("orderQuantity")}` : "",
+        `Закупівля: ${value("volume")}`,
+        value("comment") ? `Коментар: ${value("comment")}` : ""
+      ].filter(Boolean).join("\n");
+
+      status.textContent = "SMS-заявку сформовано. Перевірте повідомлення у своєму телефоні перед відправленням.";
+      const separator = /iPad|iPhone|iPod/.test(navigator.userAgent) ? "&" : "?";
+      window.location.href = `sms:+380503403547${separator}body=${encodeURIComponent(message)}`;
+    });
+  };
+
+  const showPartnerDialog = (trigger) => {
+    if (!productDialog || !productDialogKicker || !productDialogTitle || !productDialogContent || !partnerDialogTemplate) return;
+    dialogTrigger = trigger;
+    productDialogKicker.textContent = "Партнерство для магазинів";
+    productDialogTitle.textContent = "Умови, стартові набори та заявка";
+    productDialogContent.replaceChildren(partnerDialogTemplate.content.cloneNode(true));
+    productDialogContent.setAttribute("aria-label", "Умови партнерства для магазинів");
+    productDialogContent.scrollTop = 0;
+    setupPartnerCalculator();
+    setupPartnerNavigation();
+    setupPartnerRequest();
+    productDialog.showModal();
+    document.body.classList.add("dialog-open");
+  };
+
+  partnerOpenButtons.forEach((button) => button.addEventListener("click", () => showPartnerDialog(button)));
 
   productList?.addEventListener("click", (event) => {
     const button = event.target.closest("button[data-action][data-product-id]");
