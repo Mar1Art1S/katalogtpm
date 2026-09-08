@@ -383,10 +383,7 @@ body > footer { background: var(--navy-deep); color: white; }
 .pricing-table strong { display: block; color: inherit; font-size: 14px; line-height: 1.4; }
 .pricing-table td:nth-child(2) strong { color: var(--navy); font-size: 18px; letter-spacing: -.02em; }
 .pricing-table td:nth-child(3) strong { color: var(--blue); }
-.pricing-table td:nth-child(4) strong { color: #7f4300; }
 .pricing-table span { display: block; margin-top: 5px; color: var(--muted); font-size: 11px; font-weight: 700; line-height: 1.4; }
-.pricing-volume-note { margin: 24px 0 0; padding: 17px 19px; border-left: 4px solid var(--orange); border-radius: 0 13px 13px 0; background: #fff8ed; color: #4b5d72; font-size: 14px; line-height: 1.55; }
-.pricing-volume-note strong { color: var(--navy); }
 .pricing-phone { margin-top: 20px; }
 
 .mobile-cta { display: none; border: 0; cursor: pointer; }

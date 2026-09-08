@@ -201,19 +201,17 @@
         <th scope="row" data-label="Фасування">${cellMarkup(price.pack, price.packNote)}</th>
         <td data-label="Роздрібна">${cellMarkup(price.retail, price.retailNote)}</td>
         <td data-label="Партнерам">${cellMarkup(price.partner || product.partnerPrice, "телефоном")}</td>
-        <td data-label="Великий опт">${cellMarkup(price.wholesale || product.wholesalePrice, "залежить від обсягу")}</td>
       </tr>`).join("");
 
     return `
-      <p class="pricing-lead">Фасування зібрані в одній картці товару. Роздрібні ціни наведено станом на 31.08.2026; партнерський і великий опт погоджуються під реальний обсяг.</p>
+      <p class="pricing-lead">Фасування зібрані в одній картці товару. Роздрібні ціни наведено станом на 31.08.2026; партнерські умови уточнюйте телефоном.</p>
       <div class="pricing-table-wrap">
         <table class="pricing-table">
           <caption class="visually-hidden">Фасування і ціни для ${escapeHtml(product.name)}</caption>
-          <thead><tr><th scope="col">Фасування</th><th scope="col">Роздрібна ціна</th><th scope="col">Для партнерів</th><th scope="col">Великий опт</th></tr></thead>
+          <thead><tr><th scope="col">Фасування</th><th scope="col">Роздрібна ціна</th><th scope="col">Для партнерів</th></tr></thead>
           <tbody>${rows}</tbody>
         </table>
       </div>
-      <p class="pricing-volume-note"><strong>Більша партія — нижча ціна.</strong> ${escapeHtml(product.priceNote)}</p>
       <a class="button button-accent pricing-phone" href="tel:+380503403547" aria-label="Зателефонувати для розрахунку партії: +38 050 340 35 47">Уточнити партнерську ціну: +38 050 340 35 47 <span aria-hidden="true">↗</span></a>`;
   };
 
