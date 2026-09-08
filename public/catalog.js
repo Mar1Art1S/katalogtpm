@@ -19,6 +19,7 @@
   const productDialogContent = document.querySelector("#product-dialog-content");
   const productDialogClose = document.querySelector(".product-dialog-close");
   const progress = document.querySelector(".scroll-progress span");
+  const backToTop = document.querySelector(".back-to-top");
   let activeFilter = "all";
   let dialogTrigger = null;
 
@@ -275,7 +276,18 @@
     const total = document.documentElement.scrollHeight - window.innerHeight;
     const ratio = total > 0 ? Math.min(window.scrollY / total, 1) : 0;
     if (progress) progress.style.transform = `scaleX(${ratio})`;
+    if (backToTop) {
+      const isVisible = window.scrollY > 500;
+      backToTop.classList.toggle("is-visible", isVisible);
+      backToTop.setAttribute("aria-hidden", String(!isVisible));
+      backToTop.tabIndex = isVisible ? 0 : -1;
+    }
   };
+
+  backToTop?.addEventListener("click", () => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
+  });
 
   const setupButtonAttention = () => {
     const mobileViewport = window.matchMedia("(max-width: 720px)");
