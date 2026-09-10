@@ -213,6 +213,7 @@
           <tbody>${rows}</tbody>
         </table>
       </div>
+      ${product.packagingNote ? `<p class="pricing-packaging-note"><strong aria-hidden="true">***</strong> ${escapeHtml(product.packagingNote)}</p>` : ""}
       <a class="button button-accent pricing-phone" href="tel:+380503403547" aria-label="Зателефонувати для розрахунку партії: +38 050 340 35 47">Уточнити партнерську ціну: +38 050 340 35 47 <span aria-hidden="true">↗</span></a>`;
   };
 

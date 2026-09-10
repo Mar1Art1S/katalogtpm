@@ -386,6 +386,8 @@ body > footer { background: var(--navy-deep); color: white; }
 .pricing-table td:nth-child(2) strong { color: var(--navy); font-size: 18px; letter-spacing: -.02em; }
 .pricing-table td:nth-child(3) strong { color: var(--blue); }
 .pricing-table span { display: block; margin-top: 5px; color: var(--muted); font-size: 11px; font-weight: 700; line-height: 1.4; }
+.pricing-packaging-note { margin: 16px 0 0; color: #c62828; font-size: 14px; font-weight: 800; line-height: 1.55; }
+.pricing-packaging-note strong { color: #e00000; letter-spacing: .08em; }
 .pricing-phone { margin-top: 20px; }
 
 .back-to-top {
