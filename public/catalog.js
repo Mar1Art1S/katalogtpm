@@ -219,6 +219,15 @@
   const renderDetailsDialog = (product) => {
     const applications = product.details.applications.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
     const specs = product.details.specs.map(([term, value]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("");
+    const detailPrices = Array.isArray(product.details.prices) ? product.details.prices : [];
+    const pricing = detailPrices.length ? `
+      <section class="detail-section detail-pricing">
+        <h3>Фасування та ціна</h3>
+        <dl class="detail-specs">
+          ${detailPrices.map(({ pack, retail }) => `<div><dt>${escapeHtml(pack)}</dt><dd>${escapeHtml(retail)}</dd></div>`).join("")}
+        </dl>
+        ${product.details.priceNote ? `<p class="detail-price-note">${escapeHtml(product.details.priceNote)}</p>` : ""}
+      </section>` : "";
 
     return `
       <p class="detail-lead">${escapeHtml(product.details.lead)}</p>
@@ -232,6 +241,7 @@
           <dl class="detail-specs">${specs}</dl>
         </section>
       </div>
+      ${pricing}
       <p class="detail-note"><strong>Важливо:</strong> ${escapeHtml(product.details.note)}</p>`;
   };
 
@@ -244,7 +254,7 @@
     dialogTrigger = trigger;
     const isPrice = type === "price";
     if (productDialogKicker) productDialogKicker.textContent = isPrice ? "Фасування та умови" : "Технічні відомості";
-    productDialogTitle.textContent = isPrice ? `Фасування і ціна — ${product.name}` : product.name;
+    productDialogTitle.textContent = isPrice ? `Фасування і ціна — ${product.name}` : (product.details.title || product.name);
     productDialogContent.innerHTML = isPrice ? renderPriceDialog(product) : renderDetailsDialog(product);
     productDialogContent.setAttribute("aria-label", isPrice ? `Фасування і ціни на ${product.name}` : `Технічні відомості про ${product.name}`);
     productDialogContent.scrollTop = 0;
